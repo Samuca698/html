@@ -1,7 +1,7 @@
-# Apostila HTML
+# Apostila de html
 <html lang="pt-br">
 <head>
-<title>Apostila html</title>
+<title>Apostila de html</title>
 <meta charset="utf-8">
 <meta keywords="apostila,html,curso">
 <meta description="Aprenda HTML em poucos minutos e comece a criar os seus
