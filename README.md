@@ -3,12 +3,12 @@
 <head>
 <title>Apostila html</title>
 <meta charset="utf-8">
-<meta="keywords" content="apostila,html,curso">
-<meta="description" content="Aprenda HTML em poucos minutos e comece a criar os seus
+<meta keywords="apostila,html,curso">
+<meta description="Aprenda HTML em poucos minutos e comece a criar os seus
 próprios sites">
-<meta="author" content="SAMUEL">
+<meta author="SAMUEL">
 <meta http-equiv="refresh" content="2">
-<meta="robots" content="noindex">
+<meta robots="noindex">
 </head>
 <body>
    SAMUEL DA SILVA CAMPOS
