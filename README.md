@@ -2,7 +2,7 @@
 <html lang="pt-br>
 <head>
 <title>Apostila html</title>
-<meta="charset" content="utf-8">
+<meta charset="utf-8">
 <meta="keywords" content="apostila,html,curso">
 <meta="description" content="Aprenda HTML em poucos minutos e comece a criar os seus
 próprios sites">
