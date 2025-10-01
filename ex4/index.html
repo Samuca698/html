@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+
+
+   <script>
+
+const candidatos = [
+      {nome: "Jair Bolsonaro", partido: "PL", foto: "img/candidato1.png"},
+      {nome: "Luiz Inácio Lula da Silva", partido: "PT", foto: "img/candidato2.png"},
+      {nome: "Ciro Gomes", partido: "PDT", foto: "img/candidato3.png"},
+      {nome: "Simone Tebet", partido: "MDB", foto: "img/candidato4.png"},
+      
+    ];
+
+    function gerarResultado() {
+      let escolhidos = [];
+      while (escolhidos.length < 4) {
+        let sorteado = candidatos[Math.floor(Math.random() * candidatos.length)];
+        if (!escolhidos.includes(sorteado)) {
+          escolhidos.push(sorteado);
+        }
+      }
+      let votos = [];
+      let restante = 100;
+      for (let i = 0; i < 3; i++) {
+        let v = Math.floor(Math.random() * (restante + 1));
+        votos.push(v);
+        restante -= v;
+      }
+      votos.push(restante); 
+      votos = votos.sort(() => Math.random() - 0.5); 
+
+
+      for (let i = 0; i < 4; i++) {
+        document.getElementById("foto" + (i+1)).src = escolhidos[i].foto;
+        document.getElementById("nome" + (i+1)).innerText = escolhidos[i].nome;
+        document.getElementById("partido" + (i+1)).innerText = "Partido: " + escolhidos[i].partido;
+        document.getElementById("votos" + (i+1)).innerText = "" + votos[i] + "%";
+      }
+
+    
+      let maxVotos = Math.max(...votos);
+      let indiceVencedor = votos.indexOf(maxVotos);
+      let vencedor = escolhidos[indiceVencedor];
+
+      document.getElementById("resultadoFinal").innerText =
+        "Candidato(a) vencedor(a): " + vencedor.nome + " (" + vencedor.partido + ") com " + maxVotos + "% dos votos!";
+    }
+     
+   </script>
+
+<h3>Candidatos a eleição presidencial de 2022</h3>
+
+  <div class="container">
+  
+    <div class="card">
+      <img src="img/candidato1.png" alt="Candidato 1" id="foto1">
+      <h2 id="nome1">Jair Bolsonaro</h2>
+      <p id="partido1">Partido: PL</p>
+      <p id="votos1">0%</p>
+    </div>
+
+    <div class="card">
+      <img src="img/candidato2.png" alt="Candidato 2" id="foto2">
+      <h2 id="nome2">Luiz Inácio Lula da Silva</h2>
+      <p id="partido2">Partido: PT</p>
+      <p id="votos2">0%</p>
+    </div>
+    
+    <div class="card">
+      <img src="img/candidato3.png"Candidato 3" id="foto3">
+      <h2 id="nome3">Ciro Gomes</h2>
+      <p id="partido3">Partido: PDT</p>
+      <p id="votos3">0%</p>
+    </div>
+    
+    <div class="card">
+      <img src="img/candidato4.png" alt="Candidato 4" id="foto4">
+      <h2 id="nome4">Simone Tebet</h2>
+      <p id="partido4">Partido: MDB</p>
+      <p id="votos4">0%</p>
+    </div>
+  </div>
+
+  <button class="btn" onclick="gerarResultado()">Gerar resultado</button>
+
+  <div class="resultado" id="resultadoFinal">
+    
+  </div>
+
+
+</body>
+
+</html>
