@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <main class="container">
+    <div class="personagem">
+      <img id="charImg" src="img/Pensativo.png" alt="Pensativo">
+      <p id="mensagem">zzzzzzzzz!</p>
+    </div>
+  </main>
+  <script>
+
+const charImg = document.getElementById("charImg");
+const mensagem = document.getElementById("mensagem");
+
+
+const estados = {
+  pensativo: {
+    img: "img/pensativo.png",
+    msg: "zzzzzzzzz!"
+  },
+  assustado: {
+    img: "img/assustado.png",
+    msg: "O que você quer?"
+  },
+  alegre: (nome) => ({
+    img: "img/alegre.png",
+    msg: `${nome}, seja bem-vindo!`
+  }),
+  nervoso: {
+    img: "img/nervoso.png",
+    msg: "Não me faça perder o meu tempo!"
+  }
+};
+
+function estadoPensativo() {
+  charImg.src = estados.pensativo.img;
+  charImg.alt = "Pensativo";
+  mensagem.textContent = estados.pensativo.msg;
+}
+estadoPensativo();
+
+charImg.addEventListener("mouseover", () => {
+  charImg.src = estados.assustado.img;
+  charImg.alt = "Assustado";
+  mensagem.textContent = estados.assustado.msg;
+});
+
+charImg.addEventListener("mouseout", estadoPensativo);
+
+charImg.addEventListener("click", () => {
+  let nome = prompt("Qual é o seu nome?");
+  if (nome === null || nome.trim() === "") {
+    charImg.src = estados.nervoso.img;
+    charImg.alt = "Nervoso";
+    mensagem.textContent = estados.nervoso.msg;
+  } else {
+    const alegre = estados.alegre(nome.trim());
+    charImg.src = alegre.img;
+    charImg.alt = "Alegre";
+    mensagem.textContent = alegre.msg;
+  }
+});
+
+    
+  </script>
+</body>
+</html>
