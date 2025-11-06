@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <script>
+
+//ex1//
+function copiarTexto() {
+
+    let nome = document.getElementById("caixa1").value;
+    
+    setTimeout(function(){
+        document.getElementById("caixa2").value = nome;
+    }, 2000);
+}
+
+//ex2//
+
+function atrasoTempo(){
+
+    let entrada = document.getElementById("caixa3").value;
+
+    let segundos = document.getElementById("tempo").value;
+
+    setTimeout(function(){
+
+       document.getElementById("caixa4").value = entrada;
+    }, segundos * 1000);
+}
+
+//ex03//
+
+function tamanho() {
+  let nome2 = document.getElementById("caixa5").value;
+  let texto = document.getElementById("resultado");
+  texto.innerHTML = nome2;
+  let t = 14;
+  texto.style.fontSize = t + "px";
+  let intervalo = setInterval(function() {
+    t += 2;
+    texto.style.fontSize = t + "px";
+    if (t >= 40) clearInterval(intervalo);
+  }, 500);
+}
+
+//04//
+
+let x = prompt("Informe o número de segundos:");
+x = parseInt(x);
+let pq = document.createElement("p");
+document.body.appendChild(pq);
+let t = setInterval(() => {
+  pq.innerText = "Por favor, aguarde " + x + " segundos para carregar a página do Google.";
+  if (x-- <= 0) {
+    clearInterval(t);
+    location.href = "https://www.google.com";
+  }
+}, 1000);
+
+//ex05//
+
+let n = prompt("Quantos nomes deseja digitar?");
+n = parseInt(n);
+let nomes = [];
+
+for (let j = 0; j < n; j++) {
+  nomes.push(prompt("Digite o nome " + (j + 1) + ":"));
+}
+
+let p = document.createElement("p");
+document.body.appendChild(p);
+
+let i = 0;
+let intervalo = setInterval(() => {
+  p.innerHTML += nomes[i] + "<br>";
+  i++;
+  if (i >= nomes.length) clearInterval(intervalo);
+}, 1000);
+
+    </script>
+
+    <div class="ex1">
+
+        <h1>exercicio 1</h1>
+
+        <input type="text" id="caixa1"><br><br>
+        <input type="text" id="caixa2"><br><br>
+        <input type="button" value="clique" onclick="copiarTexto()"><br><br>
+    </div>
+
+    <div class="ex2">
+
+        <h2>exercicio 2</h2>
+
+        <input type="text" id="caixa3"><br><br>
+        <input type="text" id="caixa4"><br><br>
+
+        <input type="button" value="clique" onclick="atrasoTempo()">
+
+        <select id="tempo">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+
+    <div class="ex3">
+
+        <h3>exercicio 3</h3>
+
+        <input type="text" id="caixa5"><br><br>
+        <input type="button" value="clicar" onclick="tamanho()">
+        <p id="resultado"></p>
+    </div>
+
+
+
+</body>
+
+</html>
